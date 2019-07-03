@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  colour: one
+  painting: one
+
+two:
+  colour: two
+  painting: two

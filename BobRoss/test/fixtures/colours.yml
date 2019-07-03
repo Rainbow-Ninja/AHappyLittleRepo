@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alizerancrimson: false
+  brightred: false
+  cadmiumyellow: false
+  darksienna: false
+  indianyellow: false
+  midnightblue: false
+  mountainmix: false
+  phthaloblue: false
+  phthalogreen: false
+  prussianblue: false
+  sapgreen: false
+  titaniumwhite: false
+  vandykebrown: false
+  yellowochre: false
+
+two:
+  alizerancrimson: false
+  brightred: false
+  cadmiumyellow: false
+  darksienna: false
+  indianyellow: false
+  midnightblue: false
+  mountainmix: false
+  phthaloblue: false
+  phthalogreen: false
+  prussianblue: false
+  sapgreen: false
+  titaniumwhite: false
+  vandykebrown: false
+  yellowochre: false

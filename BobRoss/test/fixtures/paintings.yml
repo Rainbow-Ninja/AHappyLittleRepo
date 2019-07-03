@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trees: false
+  river: false
+  cabin: false
+  waterfall: false
+  guest: false
+  animalguest: false
+  startcolour: MyString
+  shape: MyString
+  likes: 1
+  picture: MyString
+  profile: one
+
+two:
+  trees: false
+  river: false
+  cabin: false
+  waterfall: false
+  guest: false
+  animalguest: false
+  startcolour: MyString
+  shape: MyString
+  likes: 1
+  picture: MyString
+  profile: two
