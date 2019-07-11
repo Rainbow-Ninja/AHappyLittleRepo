@@ -26,12 +26,12 @@
 </p>
 
 <p>
-  <strong>Animalguest:</strong>
+  <strong>Animal Guest:</strong>
   <%= @painting.animalguest %>
 </p>
 
 <p>
-  <strong>Startcolour:</strong>
+  <strong>Start Colour:</strong>
   <%= @painting.startcolour %>
 </p>
 
@@ -44,15 +44,17 @@
   <strong>Likes:</strong>
   <%= @painting.likes %>
 </p>
-
+ 
 <p>
   <strong>Picture:</strong>
-  <%= @painting.picture %>
+  <% if @painting.picture %>
+    <%= image_tag @painting.picture  if @painting.picture.attached?%>
+  <%end%>
 </p>
 
 <p>
   <strong>Profile:</strong>
-  <%= @painting.profile %>
+  <%= @painting.profile.username %>
 </p>
 
 <%= link_to 'Edit', edit_painting_path(@painting) %> |

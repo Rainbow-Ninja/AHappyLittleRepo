@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    @user_type = params[:user_type] 
   end
 
   # GET /profiles/1/edit

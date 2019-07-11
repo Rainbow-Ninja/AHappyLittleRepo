@@ -1,5 +1,6 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /paintings
   # GET /paintings.json
@@ -14,7 +15,17 @@ class PaintingsController < ApplicationController
 
   # GET /paintings/new
   def new
-    @painting = Painting.new
+    puts "**********************************CURRENT USER**************"
+    # puts blah
+    if current_user
+      if current_user.profile
+        @painting = Painting.new
+      else
+        redirect_to new_profile_path
+      end
+    else 
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /paintings/1/edit
@@ -24,7 +35,22 @@ class PaintingsController < ApplicationController
   # POST /paintings
   # POST /paintings.json
   def create
-    @painting = Painting.new(painting_params)
+    @painting = Painting.new
+    puts "****************PARAMS START*******************"
+    puts params[:painting][:picture]
+    puts "*****************PARAMS END********************"
+ 
+    @painting.picture.attach(params[:painting][:picture])
+    p @painting.picture.attached?
+    @profile = Profile.new 
+    @profile.id = current_user.profile.id #current_user = device and need to sign in
+    @profile.save
+    @painting.profile_id = current_user.profile.id
+    # @seller = Seller.new #need to create a seller so we can link them
+    # @seller.profile_id = current_user.profile.id
+    # @seller.save
+    # # link seller_id to car model
+    # @car.seller_id = current_user.profile.seller.id
 
     respond_to do |format|
       if @painting.save
