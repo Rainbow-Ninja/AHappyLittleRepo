@@ -10,6 +10,22 @@
   <%= @profile.bio %>
 </p>
 
+<p>
+  <strong>Paintings:</strong>
+  <div class = "row">
+    <div class = "col-md-8">
+      <div class = "row">
+        <% @painting.each do |paintwork| %>
+          <% if paintwork.profile_id.to_i == @profile.id.to_i %>
+          <div class="col-md-4">
+            <%= image_tag paintwork.artwork, class: "d-block w-100" %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 <%# <p>
   <strong>User:</strong>
   <%= @profile.user %>

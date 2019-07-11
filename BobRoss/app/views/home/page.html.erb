@@ -1,4 +1,24 @@
-<h1>Home#page</h1>
-<p>Find me in app/views/home/page.html.erb</p>
+<h1>A Happy Little Index</h1>
 
-<h1> test </h1>
+<div class="row mt-5">
+    <% if @painting.present? %>
+    <% @painting.each do |painting| %>
+        <div class="col-md-4 mt-5">
+            <div class="card">
+            <%# check if the image is there, if not set default pic %>
+            <% if painting.artwork.present? %>
+                <%= image_tag painting.artwork, class: "card-img-top" %>
+            <%end%>
+
+                <div class="card-body">
+                    <h5 class="card-title btn btn-primary"><%= link_to "#{painting.profile.username}", profile_path(painting.profile.id) %></h5>
+                    <p class="card-text">Happy Trees</p>
+                    <%= link_to "Have a closer look", painting_path(painting.id), class: "btn btn-primary"%>
+                </div>
+            </div>
+        </div>
+        
+    <%end%>
+    <%end%>
+</div>
+

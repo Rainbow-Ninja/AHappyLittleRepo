@@ -1,61 +1,72 @@
 <p id="notice"><%= notice %></p>
+<div class = "row">
+  <div class = "col-md-8">
+    <div class = "row">
+      <p>
+        <strong>Picture:</strong>
+        <% if @painting.artwork %>
+          <%= image_tag @painting.artwork  if @painting.artwork.attached?%>
+        <%end%>
+      </p>
+    </div>
+  </div>
+  <div class = "col-md-4">
+    <p>
+      <strong>River:</strong>
+      <%= @painting.river %>
+    </p>
 
-<p>
-  <strong>Trees:</strong>
-  <%= @painting.trees %>
-</p>
+    <p>
+      <strong>Beach:</strong>
+      <%= @painting.beach %>
+    </p>
 
-<p>
-  <strong>River:</strong>
-  <%= @painting.river %>
-</p>
+    <p>
+      <strong>Cabin:</strong>
+      <%= @painting.cabin %>
+    </p>
 
-<p>
-  <strong>Cabin:</strong>
-  <%= @painting.cabin %>
-</p>
+    <p>
+      <strong>Waterfall:</strong>
+      <%= @painting.waterfall %>
+    </p>
 
-<p>
-  <strong>Waterfall:</strong>
-  <%= @painting.waterfall %>
-</p>
+    <p>
+      <strong>Guest:</strong>
+      <%= @painting.guest %>
+    </p>
 
-<p>
-  <strong>Guest:</strong>
-  <%= @painting.guest %>
-</p>
+    <p>
+      <strong>Animal Guest:</strong>
+      <%= @painting.animalguest %>
+    </p>
 
-<p>
-  <strong>Animal Guest:</strong>
-  <%= @painting.animalguest %>
-</p>
+    <p>
+      <strong>Start Colour:</strong>
+      <%= @painting.startcolour %>
+    </p>
 
-<p>
-  <strong>Start Colour:</strong>
-  <%= @painting.startcolour %>
-</p>
+    <p>
+      <strong>Start Shape:</strong>
+      <%= @painting.shape %>
+    </p>
 
-<p>
-  <strong>Shape:</strong>
-  <%= @painting.shape %>
-</p>
+    <p>
+      <strong>Likes:</strong>
+      <%= @painting.likes %>
+    </p>
 
-<p>
-  <strong>Likes:</strong>
-  <%= @painting.likes %>
-</p>
- 
-<p>
-  <strong>Picture:</strong>
-  <% if @painting.picture %>
-    <%= image_tag @painting.picture  if @painting.picture.attached?%>
-  <%end%>
-</p>
+    <p>
+      <strong>Other:</strong>
+      <%= @painting.other %>
+    </p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @painting.profile.username %>
-</p>
+    <p>
+      <strong>Creator:</strong>
+      <%= @painting.profile.username %>
+    </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_painting_path(@painting) %> |
 <%= link_to 'Back', paintings_path %>

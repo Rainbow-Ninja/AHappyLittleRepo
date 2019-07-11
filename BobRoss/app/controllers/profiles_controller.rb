@@ -10,6 +10,11 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @painting = Painting.all
+    puts "~~~~~~~~~~~~~~~~~~~SHOW PROFILE~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts @painting.empty?
+    puts @painting
+    puts "~~~~~~~~~~~~~~~~~~~SHOW PROFILE~~~~~~~~~~~~~~~~~~~~~~~~"
   end
 
   # GET /profiles/new
@@ -26,6 +31,14 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
+
+    # @painting = Painting.new(painting_params) 
+    # @painting.artwork.attach(params[:painting][:artwork])
+    # @profile = Profile.new 
+    # @profile.id = current_user.profile.id #current_user = device and need to sign in
+    # @profile.save
+    # @painting.profile_id = current_user.profile.id
 
     respond_to do |format|
       if @profile.save

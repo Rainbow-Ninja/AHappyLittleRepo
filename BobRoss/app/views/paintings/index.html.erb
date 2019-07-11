@@ -2,45 +2,22 @@
 
 <h1>Paintings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Trees</th>
-      <th>River</th>
-      <th>Cabin</th>
-      <th>Waterfall</th>
-      <th>Guest</th>
-      <th>Animalguest</th>
-      <th>Startcolour</th>
-      <th>Shape</th>
-      <th>Likes</th>
-      <th>Picture</th>
-      <th>Profile</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @paintings.each do |painting| %>
-      <tr>
-        <td><%= painting.trees %></td>
-        <td><%= painting.river %></td>
-        <td><%= painting.cabin %></td>
-        <td><%= painting.waterfall %></td>
-        <td><%= painting.guest %></td>
-        <td><%= painting.animalguest %></td>
-        <td><%= painting.startcolour %></td>
-        <td><%= painting.shape %></td>
-        <td><%= painting.likes %></td>
-        <td><%= painting.picture %></td>
-        <td><%= painting.profile %></td>
-        <td><%= link_to 'Show', painting %></td>
-        <td><%= link_to 'Edit', edit_painting_path(painting) %></td>
-        <td><%= link_to 'Destroy', painting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class = "row">
+      <div class = "col-md-12">
+        <div class = "row">
+          <% @paintings.each do |painting| %>
+            <tr>
+              <div class="col-md-3">
+                <td><%= image_tag painting.artwork, class: "d-block w-100"  %></td>
+                <td><%= painting.profile.username %></td>
+                <td>Likes:</td>
+                <td><%= painting.likes %></td>
+              </div>
+            </tr>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
 <br>
 

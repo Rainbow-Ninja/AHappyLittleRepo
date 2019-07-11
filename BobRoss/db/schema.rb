@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_071744) do
+ActiveRecord::Schema.define(version: 2019_07_11_113709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 2019_07_10_071744) do
   end
 
   create_table "paintings", force: :cascade do |t|
-    t.boolean "trees"
     t.boolean "river"
     t.boolean "cabin"
     t.boolean "waterfall"
@@ -114,6 +113,10 @@ ActiveRecord::Schema.define(version: 2019_07_10_071744) do
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "beach"
+    t.text "other"
+    t.boolean "mountains"
+    t.string "artwork"
     t.index ["profile_id"], name: "index_paintings_on_profile_id"
   end
 
