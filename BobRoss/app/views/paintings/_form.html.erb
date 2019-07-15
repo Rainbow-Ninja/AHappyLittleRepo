@@ -35,7 +35,7 @@
 
   <div class="field">
     <%= form.label :guest %>
-    <%= form.check_box :guest %>
+    <%= form.text_field :guest %>
   </div>
 
   <div class="field">
@@ -53,34 +53,27 @@
     <%= select_tag(:shape, options_for_select([['rectangle', 1], ['oval', 2], ['other', 3]], 1)) %>
   </div>
 
-  <%# <div class="field">
-    <%= form.label :likes %>
-  <%#  <%= form.number_field :likes %>
-  <%#</div> %>
-
   <div class="field">
     <%= form.label :other %>
     <%= form.text_field :other %>
   </div>
 
-  <div class="field">
-    <%= form.label :artwork %>
-    <%= form.file_field :artwork %>
-  </div>
-
-<% else %>
-
-  <div class="field">
-    <%= form.label :artwork %>
-    <%= form.file_field :artwork %>
-  </div>
-
 <% end %>
-<%#
+
   <div class="field">
-    <%= form.label :profile_id %>
-  <%#  <%= form.text_field :profile_id %>
- <%# </div> %>
+    <%= form.label :season %>
+    <%= form.select :season, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]), { prompt: 'Choose Season' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :episode %>
+    <%= form.select :episode, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), { prompt: 'Choose Episode' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :artwork %>
+    <%= form.file_field :artwork %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

@@ -1,72 +1,97 @@
-<p id="notice"><%= notice %></p>
-<div class = "row">
-  <div class = "col-md-8">
-    <div class = "row">
+<div class="painting_show">
+  <p id="notice"><%= notice %></p>
+  <div class = "row justify-content-md-center">
+    <div class = "col">
+      <% if @painting.artwork %>
+        <%= image_tag  @painting.artwork  if @painting.artwork.attached? %>
+      <%end%>
+    </div>
+    
+    <div class = "col mt-5">
+      <% if @painting.river %>
+        <p><strong>River</strong></p>
+      <% end %>
+
+      <% if @painting.beach %>
+        <p><strong>Beach</strong></p>
+      <% end %>
+
+      <% if @painting.cabin %>
+        <p><strong>Cabin</strong></p>
+      <% end %>
+
+      <% if @painting.waterfall %>
+        <p><strong>Waterfall</strong></p>
+      <% end %>
+
+      <% if @painting.guest %>
+        <p><strong>Guest:</strong><%= @painting.guest %></p>  
+      <% end %>
+
+      <% if @painting.animalguest %>
+        <p><strong>Animal Guest</strong></p>
+      <% end %>
+
       <p>
-        <strong>Picture:</strong>
-        <% if @painting.artwork %>
-          <%= image_tag @painting.artwork  if @painting.artwork.attached?%>
-        <%end%>
+        <strong>Start Colour:</strong>
+        <%= @painting.startcolour %>
+      </p>
+
+      <p>
+        <strong>Start Shape:</strong>
+        <%= @painting.shape %>
+      </p>
+
+      <p>
+        <strong>Likes:</strong>
+        <%= @painting.likes %>
+      </p>
+
+      <% if @painting.other %>
+        <p><strong>Other:</strong></p>
+      <% end %>
+      
+      <p>
+        <strong>Season:</strong>
+        <%= @painting.season %>
+      </p>
+
+      <p>
+        <strong>Episode:</strong>
+        <%= @painting.episode %>
+      </p>
+
+      <p>
+        <strong>Creator:</strong>
+        <%= @painting.profile.username %>
       </p>
     </div>
+
+    <div class = "col d-flex align-items-center">
+      <% if @painting.profile.user_id == 1 %>
+        <iframe width="400" height="250" src="<%= @painting.video.address %>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% end %>
+    </div>
   </div>
-  <div class = "col-md-4">
-    <p>
-      <strong>River:</strong>
-      <%= @painting.river %>
-    </p>
 
-    <p>
-      <strong>Beach:</strong>
-      <%= @painting.beach %>
-    </p>
 
-    <p>
-      <strong>Cabin:</strong>
-      <%= @painting.cabin %>
-    </p>
-
-    <p>
-      <strong>Waterfall:</strong>
-      <%= @painting.waterfall %>
-    </p>
-
-    <p>
-      <strong>Guest:</strong>
-      <%= @painting.guest %>
-    </p>
-
-    <p>
-      <strong>Animal Guest:</strong>
-      <%= @painting.animalguest %>
-    </p>
-
-    <p>
-      <strong>Start Colour:</strong>
-      <%= @painting.startcolour %>
-    </p>
-
-    <p>
-      <strong>Start Shape:</strong>
-      <%= @painting.shape %>
-    </p>
-
-    <p>
-      <strong>Likes:</strong>
-      <%= @painting.likes %>
-    </p>
-
-    <p>
-      <strong>Other:</strong>
-      <%= @painting.other %>
-    </p>
-
-    <p>
-      <strong>Creator:</strong>
-      <%= @painting.profile.username %>
-    </p>
+  <div class = "col-md-12">
+    <div class = "row mt-5">
+      <% if @painting.profile_id == 1 %>
+        <% @paintall.each do |paint| %>
+          <% if @painting.season == paint.season && @painting.episode == paint.episode %>
+            <div class="col-md-3 user_pics">
+              <%= image_tag paint.artwork, class: "d-block w-100 shadow p-3 mb-3 bg-white rounded" %>
+              <%= paint.profile.username %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+  
+  <br>
+  <%= link_to 'Edit', edit_painting_path(@painting) %> |
+  <%= link_to 'Back', paintings_path %>
 </div>
 
-<%= link_to 'Edit', edit_painting_path(@painting) %> |
-<%= link_to 'Back', paintings_path %>

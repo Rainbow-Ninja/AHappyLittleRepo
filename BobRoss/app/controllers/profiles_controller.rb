@@ -11,10 +11,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @painting = Painting.all
-    puts "~~~~~~~~~~~~~~~~~~~SHOW PROFILE~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts @painting.empty?
-    puts @painting
-    puts "~~~~~~~~~~~~~~~~~~~SHOW PROFILE~~~~~~~~~~~~~~~~~~~~~~~~"
   end
 
   # GET /profiles/new

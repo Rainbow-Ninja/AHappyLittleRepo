@@ -11,7 +11,7 @@ class PaintingsController < ApplicationController
   # GET /paintings/1
   # GET /paintings/1.json
   def show
-
+    @paintall = Painting.all
   end
 
   # GET /paintings/new
@@ -19,7 +19,7 @@ class PaintingsController < ApplicationController
 
     if current_user
       if current_user.profile
-        @painting = Painting.new(river: false, waterfall: false, beach: false, mountains: false, cabin: false, guest: false, animalguest: false, startcolour: "white", shape: "rectangle")
+        @painting = Painting.new(river: false, waterfall: false, beach: false, mountains: false, cabin: false, animalguest: false, startcolour: "white", shape: "rectangle")
         @painting.save
       else
         redirect_to new_profile_path
@@ -36,12 +36,11 @@ class PaintingsController < ApplicationController
   # POST /paintings
   # POST /paintings.json
   def create
-    @painting = Painting.new(painting_params) 
     @painting.artwork.attach(params[:painting][:artwork])
     @profile = Profile.new 
     @profile.id = current_user.profile.id #current_user = device and need to sign in
     @profile.save
-    @painting.profile_id = current_user.profile.id
+    @painting.profile_id = @profile.id
 
     respond_to do |format|
       if @painting.save
@@ -86,6 +85,6 @@ class PaintingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def painting_params
-      params.require(:painting).permit(:trees, :river, :cabin, :beach, :mountains, :waterfall, :guest, :animalguest, :startcolour, :shape, :likes, :picture, :profile_id)
+      params.require(:painting).permit(:trees, :river, :cabin, :beach, :mountains, :waterfall, :guest, :animalguest, :startcolour, :shape, :likes, :artwork, :profile_id, :episode, :season, :other)
     end
 end

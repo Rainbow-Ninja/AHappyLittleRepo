@@ -14,3 +14,43 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "paintings.scss";
+
+ .login_page{
+    position: relative;
+    width: 97vw;
+    height: 80vh;
+    margin: 0;
+    background-image: url("bob.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #d1d3c8;
+ }
+
+ .login_deets{
+    width: 20%;
+    position: absolute;
+    left: 35%;
+    top: 12%;
+    padding-left: 2%;
+    background-color: rgba(255, 255, 255, 0.5);
+ }
+
+ .container{
+    margin: 0;
+ }
+
+.bob-painting{
+    justify-content: center;
+    // width: 60vw;
+}
+
+.bob-painting img{
+    width: 65%;
+    height: auto;
+}
+ .popart:hover{
+    // border: inset 2px lightblue;
+    box-shadow: 0 0 10px 5px rgba(123, 172, 245, 0.5), 0 0 10px 4px rgba(123, 172, 245, 0.5);
+ }

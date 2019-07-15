@@ -2,11 +2,10 @@
   <% if profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
       <ul>
-      <% profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -23,8 +22,6 @@
 
   <div class="field">
     <%= form.hidden_field :user_id, value: current_user.id %>
-    <%# <%= form.text_field :user_id %> %>
-    <%# <%= f.hidden_field :user_type, value: @user_type%> %>
   </div>
  
   <div class="actions">
