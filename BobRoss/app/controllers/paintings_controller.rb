@@ -5,7 +5,8 @@ class PaintingsController < ApplicationController
   # GET /paintings
   # GET /paintings.json
   def index
-    @paintings = Painting.all
+    @bob_arr = []
+    @bob_arr = Profile.first.paintings.order(:season, :episode)
   end
 
   # GET /paintings/1
@@ -36,6 +37,10 @@ class PaintingsController < ApplicationController
   # POST /paintings
   # POST /paintings.json
   def create
+    puts "--------------------CREATE METHOD-------------------------"
+    puts @painting = Painting.new(painting_params)
+    puts @painting
+    puts "--------------------CREATE METHOD-------------------------"
     @painting.artwork.attach(params[:painting][:artwork])
     @profile = Profile.new 
     @profile.id = current_user.profile.id #current_user = device and need to sign in
@@ -56,6 +61,12 @@ class PaintingsController < ApplicationController
   # PATCH/PUT /paintings/1
   # PATCH/PUT /paintings/1.json
   def update
+    if @painting.artwork
+      @painting.artwork.purge
+    end
+    # if @car.pictures
+    #   @car.pictures.purge
+    # end
     respond_to do |format|
       if @painting.update(painting_params)
         format.html { redirect_to @painting, notice: 'Painting was successfully updated.' }

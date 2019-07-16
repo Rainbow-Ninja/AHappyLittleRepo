@@ -1,7 +1,7 @@
 <div class="painting_show">
   <p id="notice"><%= notice %></p>
   <div class = "row justify-content-md-center">
-    <div class = "col">
+    <div class = "col ml-5">
       <% if @painting.artwork %>
         <%= image_tag  @painting.artwork  if @painting.artwork.attached? %>
       <%end%>
@@ -67,16 +67,15 @@
       </p>
     </div>
 
-    <div class = "col d-flex align-items-center">
+    <div class = "col d-flex align-items-center mr-5">
       <% if @painting.profile.user_id == 1 %>
         <iframe width="400" height="250" src="<%= @painting.video.address %>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <% end %>
     </div>
   </div>
 
-
   <div class = "col-md-12">
-    <div class = "row mt-5">
+    <div class = "row mt-5 peoples">
       <% if @painting.profile_id == 1 %>
         <% @paintall.each do |paint| %>
           <% if @painting.season == paint.season && @painting.episode == paint.episode %>
@@ -91,7 +90,8 @@
   </div>
   
   <br>
-  <%= link_to 'Edit', edit_painting_path(@painting) %> |
-  <%= link_to 'Back', paintings_path %>
+  <% if current_user.id == @painting.profile.id %>
+    <%= link_to 'Edit', edit_painting_path(@painting) %> |
+  <% end %>
+  <a href="javascript:history.back()">Back</a>
 </div>
-

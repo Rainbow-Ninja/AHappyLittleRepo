@@ -7,13 +7,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Barriecito|Poppins&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div class = "container">
+    <div class = "containers">
+      <audio src="assets/bob_song.mp3" autoplay loop hidden>
+      <p>Your browser does not support HTML5 audio playback</p>
+    </audio>
       <%=render 'partials/navbar'%>
       <p class="alert"><%= alert %></p>
       <%= yield %>
-  </div>
+    </div>
   </body>
 </html>

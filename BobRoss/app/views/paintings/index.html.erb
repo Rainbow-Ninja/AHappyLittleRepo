@@ -1,26 +1,23 @@
-<div class="index_page">
-  <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-  <h1>All Paintings by Bob Ross</h1>
+<h1>All Paintings by Bob Ross</h1>
+<h5>See what you like and click to follow along</h5>
+
+<div class = "row">
+  <div class = "col-md-12">
     <div class = "row">
-      <div class = "col-md-12">
-        <div class = "row">
-          <% @paintings.each do |painting| %>
-            
-              <div class="col-md-3">
-                <% if (painting.profile_id.to_i == 1) %>
-                  <%= image_tag painting.artwork, class: "d-block w-100 shadow p-3 mb-3 bg-white rounded" %>
-                  <%= painting.profile.username %>
-                  <p>Season: <%= painting.season %>Episode: <%= painting.episode %></p>
-                  <%= link_to "Have a closer look", painting_path(painting.id), class: "btn btn-primary"%>
-                  <p>Likes: <%= painting.likes %></p>
-                  <br>
-                <% end %>
-              </div>
-          <% end %>
+      <% @bob_arr.each do |bob| %>
+        <div class="col-md-3">
+          <%= image_tag bob.artwork, class: "d-block w-100 shadow p-3 mb-3 bg-white rounded" %>
+          <p> Bob Ross </p>
+          <p>Season: <%= bob.season %> Episode: <%= bob.episode %></p>
+          <%= link_to "Have a closer look", painting_path(bob.id), class: "btn btn-primary"%>
+          <p>Likes: <%= bob.likes %></p>
+          <br>
         </div>
-      </div>
+      <% end %>
     </div>
-    <br>
-  <%= link_to 'New Painting', new_painting_path %>
+  </div>
 </div>
+<br>
+<%= link_to 'New Painting', new_painting_path %>
