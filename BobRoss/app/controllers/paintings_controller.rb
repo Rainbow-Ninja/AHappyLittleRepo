@@ -37,10 +37,6 @@ class PaintingsController < ApplicationController
   # POST /paintings
   # POST /paintings.json
   def create
-    puts "--------------------CREATE METHOD-------------------------"
-    puts @painting = Painting.new(painting_params)
-    puts @painting
-    puts "--------------------CREATE METHOD-------------------------"
     @painting.artwork.attach(params[:painting][:artwork])
     @profile = Profile.new 
     @profile.id = current_user.profile.id #current_user = device and need to sign in
