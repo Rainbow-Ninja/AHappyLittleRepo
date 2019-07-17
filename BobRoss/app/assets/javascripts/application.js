@@ -18,3 +18,36 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+function mysearch()
+{
+    var search = document.getElementById("season_search").value;
+    var elems = document.querySelectorAll(".pictureSearch");
+
+    for (var i = 0; i < elems.length; i++) 
+    {
+        if( elems[i].dataset["season"] !== undefined )
+        {
+            console.log(search + " & " + elems[i].dataset.season)
+
+            if ( search == "all")
+            {
+                elems[i].style.display = "initial"
+            }
+            else
+            {
+                if ( elems[i].dataset.season != search ) 
+                {
+                    elems[i].style.display = "none"
+                }
+                else 
+                {
+                    elems[i].style.display = "initial"
+                }
+            }
+        }
+        else {
+            console.log("You suck")
+        }
+    }
+}

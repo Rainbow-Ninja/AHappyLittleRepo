@@ -71,3 +71,27 @@
      background-color:#e3f2fd;
      padding: 15px;
  }
+
+ .season_search{
+    align-items: center;
+    display: flex;
+ }
+
+ .new_form{
+    width: 98vw;
+    height:87vh;
+    background-image: url("BobRossClouds.png");
+    top: 13%;
+    left: 1%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+.new_form h1{
+   margin: 5% 0 0 5%;
+ }
+
+ .new_painting{
+    margin-left: 5%;
+ }

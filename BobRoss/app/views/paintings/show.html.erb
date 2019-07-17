@@ -90,8 +90,10 @@
   </div>
   
   <br>
-  <% if current_user.id == @painting.profile.id %>
-    <%= link_to 'Edit', edit_painting_path(@painting) %> |
+  <% if user_signed_in? %>
+    <% if current_user.id == @painting.profile.id %>
+      <%= link_to 'Edit', edit_painting_path(@painting) %> |
+    <% end %>
   <% end %>
   <a href="javascript:history.back()">Back</a>
 </div>

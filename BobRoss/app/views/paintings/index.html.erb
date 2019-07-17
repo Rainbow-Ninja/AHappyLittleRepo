@@ -1,13 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Paintings by Bob Ross</h1>
-<h5>See what you like and click to follow along</h5>
+<div class = "row">
+  <div class = "col-md-12">
+    <div class = "row">
+      <div class = "col-md-5">
+        <h1>All Paintings by Bob Ross</h1>
+        <h5>See what you like and click to follow along</h5>
+      </div>
+
+<!--Blue select-->
+      <div >
+<!-------------------- FIX THIS--------------------------------------------------------->
+        <select id="season_search" class="mdb-select md-form colorful-select dropdown-primary" onchange="mysearch()"> 
+<!-------------------- FIX THIS--------------------------------------------------------->
+          <option selected="selected" value="all">All</option>
+          <option value="1">Season 1</option>
+          <option value="2">Season 2</option>
+          <option value="3">Season 3</option>
+          <option value="4">Season 4</option>
+          <option value="5">Season 5</option>
+          <option value="5">Season 7</option>
+          <option value="5">Season 10</option>
+          <option value="5">Season 12</option>
+          <option value="5">Season 20</option>
+        </select>
+      </div>
+      <label>Choose a season</label>
+    </div>
+  </div>
+</div>
 
 <div class = "row">
   <div class = "col-md-12">
     <div class = "row">
       <% @bob_arr.each do |bob| %>
-        <div class="col-md-3">
+        <div class="col-md-3 paintingEntry pictureSearch" data-season="<%=bob.season%>">
           <%= image_tag bob.artwork, class: "d-block w-100 shadow p-3 mb-3 bg-white rounded" %>
           <p> Bob Ross </p>
           <p>Season: <%= bob.season %> Episode: <%= bob.episode %></p>

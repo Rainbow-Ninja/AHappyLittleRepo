@@ -9,16 +9,16 @@
       <li class="nav-item active">
         <%= link_to "Index", paintings_path, class: "nav- btn btn-primary"%>
       </li>
-      
-      <li class="nav-item active">
-        <%= link_to "My Profile", profile_path(current_user.id), class: "nav- btn btn-primary"%>
-      </li>
 
+      <% if user_signed_in? %>
       <li class="nav-item active"> 
         <%= link_to "Upload my painting", new_painting_path, class: "nav- btn btn-primary"%>
       </li>
-      
-      <% if user_signed_in? %>
+
+        <li class="nav-item active">
+          <%= link_to "My Profile", profile_path(current_user.id), class: "nav- btn btn-primary"%>
+        </li>
+        
         <li class="nav-item">
           <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-link"%>
         </li>

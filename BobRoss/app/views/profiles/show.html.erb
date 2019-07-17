@@ -56,7 +56,9 @@
     </div>
   </div>
 
-<% if current_user.id == @profile.id %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% if user_signed_in? %>
+  <% if current_user.id == @profile.id %>
+    <%= link_to 'Edit', edit_profile_path(@profile) %> |
+  <% end %>
 <% end %>
 <a href="javascript:history.back()">Back</a>
